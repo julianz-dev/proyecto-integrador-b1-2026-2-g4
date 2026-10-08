@@ -23,13 +23,15 @@ public class MainView extends VerticalLayout {
         setPadding(true);
         setSpacing(true);
 
-        H2 titulo = new H2("Gestión de Entidades (CRUD)");
+        H2 titulo = new H2("Proyecto Integrador Grupo 4");
 
         TabSheet tabSheet = new TabSheet();
         tabSheet.setWidthFull();
 
-        tabSheet.add("Entidad 1", crearSeccionEntidad1());
-        tabSheet.add("Entidad 2", crearSeccionEntidad2());
+        tabSheet.add("Movimientos Inventario", crearSeccionEntidad1());
+        tabSheet.add("Tipos Movimientos", crearSeccionEntidad2());
+        tabSheet.add("Alertas Inventario", crearSeccionEntidad2());
+        tabSheet.add("Tipos Alerta", crearSeccionEntidad2());
 
         add(titulo, tabSheet);
     }
