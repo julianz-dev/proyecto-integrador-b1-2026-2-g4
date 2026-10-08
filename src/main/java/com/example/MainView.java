@@ -28,8 +28,8 @@ public class MainView extends VerticalLayout {
         TabSheet tabSheet = new TabSheet();
         tabSheet.setWidthFull();
 
-        tabSheet.add("Movimientos Inventario", crearSeccionEntidad1());
-        tabSheet.add("Tipos Movimientos", crearSeccionEntidad2());
+        tabSheet.add("Movimientos Inventario", crearSeccionMovimientosInventario());
+        tabSheet.add("Tipos Movimientos", crearSeccionTiposMovimientos());
         tabSheet.add("Alertas Inventario", crearSeccionEntidad2());
         tabSheet.add("Tipos Alerta", crearSeccionEntidad2());
 
@@ -37,7 +37,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la primera entidad
-    private Component crearSeccionEntidad1() {
+    private Component crearSeccionMovimientosInventario() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
@@ -86,7 +86,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la segunda entidad
-    private Component crearSeccionEntidad2() {
+    private Component crearSeccionTiposMovimientos() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
