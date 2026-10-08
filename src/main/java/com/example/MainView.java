@@ -30,9 +30,9 @@ public class MainView extends VerticalLayout {
         
         //Cristian
         tabSheet.add("Categoría Productos", crearSeccionCategoriaProductos());
-        tabSheet.add("Productos", crearSeccionEntidad2());
-        tabSheet.add("Tipos Items", crearSeccionEntidad2());
-        tabSheet.add("Inventarios", crearSeccionEntidad2());
+        tabSheet.add("Productos", crearSeccionProductos());
+        tabSheet.add("Tipos Items", crearSeccionTiposItems());
+        tabSheet.add("Inventarios", crearSeccionInventarios());
 
         //Julian
         tabSheet.add("Movimientos Inventario", crearSeccionMovimientosInventario());
@@ -87,7 +87,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la entidad Productos
-    private Component crearSeccionMovimientosInventario() {
+    private Component crearSeccionProductos() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
@@ -130,7 +130,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la entidad TiposItems
-    private Component crearSeccionMovimientosInventario() {
+    private Component crearSeccionTiposItems() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
@@ -173,7 +173,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la entidad Inventarios
-    private Component crearSeccionMovimientosInventario() {
+    private Component crearSeccionInventarios() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
