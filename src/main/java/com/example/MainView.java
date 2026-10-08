@@ -27,19 +27,19 @@ public class MainView extends VerticalLayout {
 
         TabSheet tabSheet = new TabSheet();
         tabSheet.setWidthFull();
-        
-        //Cristian
+
+        // Cristian
         tabSheet.add("Categoría Productos", crearSeccionCategoriaProductos());
         tabSheet.add("Productos", crearSeccionEntidad2());
         tabSheet.add("Tipos Items", crearSeccionEntidad2());
         tabSheet.add("Inventarios", crearSeccionEntidad2());
 
-        //Julian
+        // Julian
         tabSheet.add("Movimientos Inventario", crearSeccionMovimientosInventario());
         tabSheet.add("Tipos Movimientos", crearSeccionTiposMovimientos());
-        tabSheet.add("Alertas Inventario", crearSeccionEntidad2());
-        tabSheet.add("Tipos Alerta", crearSeccionEntidad2());
-        
+        tabSheet.add("Alertas Inventario", crearSeccionAlertasInventario());
+        tabSheet.add("Tipos Alerta", crearSeccionTiposAlerta());
+
         add(titulo, tabSheet);
     }
 
@@ -215,7 +215,7 @@ public class MainView extends VerticalLayout {
         return layout;
     }
 
-    // Método privado para gestionar la entidad Movimientos Inventario
+    // Método privado para gestionar la entidad MovimientosInventario
     private Component crearSeccionMovimientosInventario() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
@@ -258,94 +258,94 @@ public class MainView extends VerticalLayout {
         return layout;
     }
 
-    // Método privado para gestionar la entidad Movimientos Inventario
-    private Component crearSeccionMovimientosInventario() {
-        VerticalLayout layout = new VerticalLayout();
-        layout.setPadding(false);
-
-        TextField idField = new TextField("ID");
-        TextField nombreField = new TextField("Nombre");
-        TextField descripcionField = new TextField("Descripción");
-
-        FormLayout form = new FormLayout(idField, nombreField, descripcionField);
-
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreField.getValue()));
-        btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-
-        Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Entidad 1 - Consultar ID: " + idField.getValue()));
-
-        Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Entidad 1 - Actualizar ID: " + idField.getValue()));
-
-        Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Entidad 1 - Eliminar ID: " + idField.getValue()));
-        btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
-
-        Button btnLimpiar = new Button("Limpiar", e -> {
-            idField.clear();
-            nombreField.clear();
-            descripcionField.clear();
-        });
-
-        HorizontalLayout acciones = new HorizontalLayout(
-                btnCrear, btnConsultar, btnActualizar, btnEliminar, btnLimpiar);
-        acciones.getStyle().set("flex-wrap", "wrap");
-
-        Grid<String[]> grid = new Grid<>();
-        grid.addColumn(row -> row[0]).setHeader("ID").setAutoWidth(true);
-        grid.addColumn(row -> row[1]).setHeader("Nombre").setAutoWidth(true);
-        grid.addColumn(row -> row[2]).setHeader("Descripción").setAutoWidth(true);
-
-        layout.add(form, acciones, grid);
-        return layout;
-    }
-
-    // Método privado para gestionar la entidad Movimientos Inventario
-    private Component crearSeccionMovimientosInventario() {
-        VerticalLayout layout = new VerticalLayout();
-        layout.setPadding(false);
-
-        TextField idField = new TextField("ID");
-        TextField nombreField = new TextField("Nombre");
-        TextField descripcionField = new TextField("Descripción");
-
-        FormLayout form = new FormLayout(idField, nombreField, descripcionField);
-
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreField.getValue()));
-        btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-
-        Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Entidad 1 - Consultar ID: " + idField.getValue()));
-
-        Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Entidad 1 - Actualizar ID: " + idField.getValue()));
-
-        Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Entidad 1 - Eliminar ID: " + idField.getValue()));
-        btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
-
-        Button btnLimpiar = new Button("Limpiar", e -> {
-            idField.clear();
-            nombreField.clear();
-            descripcionField.clear();
-        });
-
-        HorizontalLayout acciones = new HorizontalLayout(
-                btnCrear, btnConsultar, btnActualizar, btnEliminar, btnLimpiar);
-        acciones.getStyle().set("flex-wrap", "wrap");
-
-        Grid<String[]> grid = new Grid<>();
-        grid.addColumn(row -> row[0]).setHeader("ID").setAutoWidth(true);
-        grid.addColumn(row -> row[1]).setHeader("Nombre").setAutoWidth(true);
-        grid.addColumn(row -> row[2]).setHeader("Descripción").setAutoWidth(true);
-
-        layout.add(form, acciones, grid);
-        return layout;
-    }
-
-    // Método privado para gestionar la segunda entidad
+    // Método privado para gestionar la entidad TiposMovimientos
     private Component crearSeccionTiposMovimientos() {
+        VerticalLayout layout = new VerticalLayout();
+        layout.setPadding(false);
+
+        TextField idField = new TextField("ID");
+        TextField nombreField = new TextField("Nombre");
+        TextField descripcionField = new TextField("Descripción");
+
+        FormLayout form = new FormLayout(idField, nombreField, descripcionField);
+
+        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreField.getValue()));
+        btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+        Button btnConsultar = new Button("Consultar",
+                e -> Notification.show("Entidad 1 - Consultar ID: " + idField.getValue()));
+
+        Button btnActualizar = new Button("Actualizar",
+                e -> Notification.show("Entidad 1 - Actualizar ID: " + idField.getValue()));
+
+        Button btnEliminar = new Button("Eliminar",
+                e -> Notification.show("Entidad 1 - Eliminar ID: " + idField.getValue()));
+        btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
+
+        Button btnLimpiar = new Button("Limpiar", e -> {
+            idField.clear();
+            nombreField.clear();
+            descripcionField.clear();
+        });
+
+        HorizontalLayout acciones = new HorizontalLayout(
+                btnCrear, btnConsultar, btnActualizar, btnEliminar, btnLimpiar);
+        acciones.getStyle().set("flex-wrap", "wrap");
+
+        Grid<String[]> grid = new Grid<>();
+        grid.addColumn(row -> row[0]).setHeader("ID").setAutoWidth(true);
+        grid.addColumn(row -> row[1]).setHeader("Nombre").setAutoWidth(true);
+        grid.addColumn(row -> row[2]).setHeader("Descripción").setAutoWidth(true);
+
+        layout.add(form, acciones, grid);
+        return layout;
+    }
+
+    // Método privado para gestionar la entidad AlertasInventario
+    private Component crearSeccionAlertasInventario() {
+        VerticalLayout layout = new VerticalLayout();
+        layout.setPadding(false);
+
+        TextField idField = new TextField("ID");
+        TextField nombreField = new TextField("Nombre");
+        TextField descripcionField = new TextField("Descripción");
+
+        FormLayout form = new FormLayout(idField, nombreField, descripcionField);
+
+        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreField.getValue()));
+        btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+        Button btnConsultar = new Button("Consultar",
+                e -> Notification.show("Entidad 1 - Consultar ID: " + idField.getValue()));
+
+        Button btnActualizar = new Button("Actualizar",
+                e -> Notification.show("Entidad 1 - Actualizar ID: " + idField.getValue()));
+
+        Button btnEliminar = new Button("Eliminar",
+                e -> Notification.show("Entidad 1 - Eliminar ID: " + idField.getValue()));
+        btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
+
+        Button btnLimpiar = new Button("Limpiar", e -> {
+            idField.clear();
+            nombreField.clear();
+            descripcionField.clear();
+        });
+
+        HorizontalLayout acciones = new HorizontalLayout(
+                btnCrear, btnConsultar, btnActualizar, btnEliminar, btnLimpiar);
+        acciones.getStyle().set("flex-wrap", "wrap");
+
+        Grid<String[]> grid = new Grid<>();
+        grid.addColumn(row -> row[0]).setHeader("ID").setAutoWidth(true);
+        grid.addColumn(row -> row[1]).setHeader("Nombre").setAutoWidth(true);
+        grid.addColumn(row -> row[2]).setHeader("Descripción").setAutoWidth(true);
+
+        layout.add(form, acciones, grid);
+        return layout;
+    }
+
+    // Método privado para gestionar entidad TiposAlerta
+    private Component crearSeccionTiposAlerta() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
