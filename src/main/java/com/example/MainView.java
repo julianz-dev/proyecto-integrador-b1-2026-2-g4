@@ -32,6 +32,10 @@ public class MainView extends VerticalLayout {
         tabSheet.add("Tipos Movimientos", crearSeccionEntidad2());
         tabSheet.add("Alertas Inventario", crearSeccionEntidad2());
         tabSheet.add("Tipos Alerta", crearSeccionEntidad2());
+        tabSheet.add("Categoría Productos", crearSeccionEntidad2());
+        tabSheet.add("Productos", crearSeccionEntidad2());
+        tabSheet.add("TiposItems", crearSeccionEntidad2());
+        tabSheet.add("Inventarios", crearSeccionEntidad2());
 
         add(titulo, tabSheet);
     }
