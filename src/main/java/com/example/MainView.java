@@ -30,9 +30,9 @@ public class MainView extends VerticalLayout {
 
         // Cristian
         tabSheet.add("Categoría Productos", crearSeccionCategoriaProductos());
-        tabSheet.add("Productos", crearSeccionEntidad2());
-        tabSheet.add("Tipos Items", crearSeccionEntidad2());
-        tabSheet.add("Inventarios", crearSeccionEntidad2());
+        tabSheet.add("Productos", crearSeccionProductos());
+        tabSheet.add("Tipos Items", crearSeccionTiposItems());
+        tabSheet.add("Inventarios", crearSeccionInventarios());
 
         // Julian
         tabSheet.add("Movimientos Inventario", crearSeccionMovimientosInventario());
@@ -87,7 +87,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la entidad Productos
-    private Component crearSeccionMovimientosInventario() {
+    private Component crearSeccionProductos() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
@@ -130,7 +130,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la entidad TiposItems
-    private Component crearSeccionMovimientosInventario() {
+    private Component crearSeccionTiposItems() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
@@ -173,7 +173,7 @@ public class MainView extends VerticalLayout {
     }
 
     // Método privado para gestionar la entidad Inventarios
-    private Component crearSeccionMovimientosInventario() {
+    private Component crearSeccionInventarios() {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
@@ -220,29 +220,47 @@ public class MainView extends VerticalLayout {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
-        TextField idField = new TextField("ID");
-        TextField nombreField = new TextField("Nombre");
-        TextField descripcionField = new TextField("Descripción");
+        TextField movimientoIdField = new TextField("ID Movimiento");
+        TextField inventarioIdField = new TextField("ID Inventario");
+        TextField tipoMovimientoIdField = new TextField("ID Tipo Movimiento");
+        TextField cantidadField = new TextField("Cantidad");
+        TextField fechaMovimientoFied = new TextField("Fecha Movimiento");
+        TextField usuarioIdField = new TextField("ID Usuario");
+        TextField motivoField = new TextField("Motivo Movimiento");
+        TextField ventaIdField = new TextField("ID Venta");
+        TextField compraIdField = new TextField("ID Compra");
+        TextField devolucionIdField = new TextField("ID Devolución");
 
-        FormLayout form = new FormLayout(idField, nombreField, descripcionField);
+        FormLayout form = new FormLayout(
+                movimientoIdField,
+                inventarioIdField,
+                tipoMovimientoIdField,
+                cantidadField,
+                fechaMovimientoFied,
+                usuarioIdField,
+                motivoField,
+                ventaIdField,
+                compraIdField,
+                devolucionIdField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Movimientos Inventario - Crear: " + inventarioIdField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Entidad 1 - Consultar ID: " + idField.getValue()));
+                e -> Notification.show("Movimientos Inventario - Consultar ID: " + movimientoIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Entidad 1 - Actualizar ID: " + idField.getValue()));
+                e -> Notification.show("Movimientos Inventario - Actualizar ID: " + movimientoIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Entidad 1 - Eliminar ID: " + idField.getValue()));
+                e -> Notification.show("Movimientos Inventario - Eliminar ID: " + movimientoIdField.getValue()));
         btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
         Button btnLimpiar = new Button("Limpiar", e -> {
-            idField.clear();
-            nombreField.clear();
-            descripcionField.clear();
+            movimientoIdField.clear();
+            inventarioIdField.clear();
+            tipoMovimientoIdField.clear();
         });
 
         HorizontalLayout acciones = new HorizontalLayout(
@@ -250,9 +268,16 @@ public class MainView extends VerticalLayout {
         acciones.getStyle().set("flex-wrap", "wrap");
 
         Grid<String[]> grid = new Grid<>();
-        grid.addColumn(row -> row[0]).setHeader("ID").setAutoWidth(true);
-        grid.addColumn(row -> row[1]).setHeader("Nombre").setAutoWidth(true);
-        grid.addColumn(row -> row[2]).setHeader("Descripción").setAutoWidth(true);
+        grid.addColumn(row -> row[0]).setHeader("ID Movimiento").setAutoWidth(true);
+        grid.addColumn(row -> row[1]).setHeader("ID Inventario").setAutoWidth(true);
+        grid.addColumn(row -> row[2]).setHeader("ID Tipo Movimiento").setAutoWidth(true);
+        grid.addColumn(row -> row[3]).setHeader("Cantidad").setAutoWidth(true);
+        grid.addColumn(row -> row[4]).setHeader("Fecha Movimiento").setAutoWidth(true);
+        grid.addColumn(row -> row[5]).setHeader("ID Usuario").setAutoWidth(true);
+        grid.addColumn(row -> row[6]).setHeader("Motivo Movimiento").setAutoWidth(true);
+        grid.addColumn(row -> row[7]).setHeader("ID Venta").setAutoWidth(true);
+        grid.addColumn(row -> row[8]).setHeader("ID Compra").setAutoWidth(true);
+        grid.addColumn(row -> row[9]).setHeader("ID Devolución").setAutoWidth(true);
 
         layout.add(form, acciones, grid);
         return layout;
