@@ -70,5 +70,5 @@ public class Inventarios {
                 ", stockMinimo=" + stockMinimo +
                 ", fechaActualizacion=" + fechaActualizacion +
                 '}';
-            }
+    }
 }

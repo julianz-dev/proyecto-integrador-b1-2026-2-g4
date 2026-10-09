@@ -56,5 +56,5 @@ public class TiposItems {
                 ", descripcionTipoItem='" + descripcionTipoItem + '\'' +
                 ", activo=" + activo +
                 '}';
-            }
+    }
 }

@@ -45,6 +45,4 @@ public class TiposMovimientos {
                 + ", efectoMovimiento=" + efectoMovimiento + "]";
     }
 
-    
-
 }

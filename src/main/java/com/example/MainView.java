@@ -18,7 +18,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextArea;
 
-@PageTitle("Gestión CRUD - 2 Entidades")
+@PageTitle("Proyecto Integrador Grupo 4")
 @Route("")
 public class MainView extends VerticalLayout {
 
@@ -58,7 +58,8 @@ public class MainView extends VerticalLayout {
 
         FormLayout form = new FormLayout(categoriaIdField, negocioIdField, nombreCategoriaField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + negocioIdField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Entidad 1 - Crear: " + negocioIdField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
@@ -106,10 +107,12 @@ public class MainView extends VerticalLayout {
         TextField manejaInventarioField = new TextField("manejaInventario");
         TextField activoField = new TextField("activo");
 
-        FormLayout form = new FormLayout(producutoIdField, negocioIdField, categoriaIdField, codigoProductoField, nombreProductoField, descripcionServicioField,
-            precioVentaField, tipoItemIdField, manejaInventarioField, activoField);
+        FormLayout form = new FormLayout(producutoIdField, negocioIdField, categoriaIdField,
+                codigoProductoField, nombreProductoField, descripcionServicioField,
+                precioVentaField, tipoItemIdField, manejaInventarioField, activoField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + negocioIdField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Entidad 1 - Crear: " + negocioIdField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
@@ -158,9 +161,11 @@ public class MainView extends VerticalLayout {
         TextField descripcionTipoItemField = new TextField("Descripción");
         TextField activoField = new TextField("Descripción");
 
-        FormLayout form = new FormLayout(tipoItemIdField, nombreItemField, descripcionTipoItemField, activoField);
+        FormLayout form = new FormLayout(tipoItemIdField, nombreItemField, descripcionTipoItemField,
+                activoField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreItemField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Entidad 1 - Crear: " + nombreItemField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
@@ -205,9 +210,11 @@ public class MainView extends VerticalLayout {
         TextField stockMinimoField = new TextField("stockMinimo");
         TextField fechaActualizacionField = new TextField("fechaActualizacion");
 
-        FormLayout form = new FormLayout(inventarioIdField, productoIdField, cantidadDisponibleField, stockMinimoField, fechaActualizacionField);
+        FormLayout form = new FormLayout(inventarioIdField, productoIdField, cantidadDisponibleField,
+                stockMinimoField, fechaActualizacionField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + productoIdField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Entidad 1 - Crear: " + productoIdField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
@@ -272,17 +279,21 @@ public class MainView extends VerticalLayout {
                 devolucionIdField);
 
         Button btnCrear = new Button("Crear",
-                e -> Notification.show("Movimientos Inventario - Crear: " + inventarioIdField.getValue()));
+                e -> Notification.show(
+                        "Movimientos Inventario - Crear: " + inventarioIdField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Movimientos Inventario - Consultar ID: " + movimientoIdField.getValue()));
+                e -> Notification.show("Movimientos Inventario - Consultar ID: "
+                        + movimientoIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Movimientos Inventario - Actualizar ID: " + movimientoIdField.getValue()));
+                e -> Notification.show("Movimientos Inventario - Actualizar ID: "
+                        + movimientoIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Movimientos Inventario - Eliminar ID: " + movimientoIdField.getValue()));
+                e -> Notification.show("Movimientos Inventario - Eliminar ID: "
+                        + movimientoIdField.getValue()));
         btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
         Button btnLimpiar = new Button("Limpiar", e -> {
@@ -337,13 +348,16 @@ public class MainView extends VerticalLayout {
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Tipo Movimiento - Consultar ID: " + tipoMovimientoIdField.getValue()));
+                e -> Notification.show(
+                        "Tipo Movimiento - Consultar ID: " + tipoMovimientoIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Tipo Movimiento - Actualizar ID: " + tipoMovimientoIdField.getValue()));
+                e -> Notification.show("Tipo Movimiento - Actualizar ID: "
+                        + tipoMovimientoIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Tipo Movimiento - Eliminar ID: " + tipoMovimientoIdField.getValue()));
+                e -> Notification.show(
+                        "Tipo Movimiento - Eliminar ID: " + tipoMovimientoIdField.getValue()));
         btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
         Button btnLimpiar = new Button("Limpiar", e -> {
@@ -393,10 +407,12 @@ public class MainView extends VerticalLayout {
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Alerta Inventario - Consultar ID: " + alertaIdField.getValue()));
+                e -> Notification
+                        .show("Alerta Inventario - Consultar ID: " + alertaIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Alerta Inventario - Actualizar ID: " + alertaIdField.getValue()));
+                e -> Notification.show(
+                        "Alerta Inventario - Actualizar ID: " + alertaIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
                 e -> Notification.show("Alerta Inventario - Eliminar ID: " + alertaIdField.getValue()));
@@ -453,10 +469,12 @@ public class MainView extends VerticalLayout {
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Entidad 2 - Consultar Código: " + tipoAlertaIdField.getValue()));
+                e -> Notification
+                        .show("Entidad 2 - Consultar Código: " + tipoAlertaIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Entidad 2 - Actualizar Código: " + tipoAlertaIdField.getValue()));
+                e -> Notification.show(
+                        "Entidad 2 - Actualizar Código: " + tipoAlertaIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
                 e -> Notification.show("Entidad 2 - Eliminar Código: " + tipoAlertaIdField.getValue()));
