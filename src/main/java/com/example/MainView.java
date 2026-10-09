@@ -261,6 +261,13 @@ public class MainView extends VerticalLayout {
             movimientoIdField.clear();
             inventarioIdField.clear();
             tipoMovimientoIdField.clear();
+            cantidadField.clear();
+            fechaMovimientoFied.clear();
+            usuarioIdField.clear();
+            motivoField.clear();
+            ventaIdField.clear();
+            compraIdField.clear();
+            devolucionIdField.clear();
         });
 
         HorizontalLayout acciones = new HorizontalLayout(
@@ -288,29 +295,33 @@ public class MainView extends VerticalLayout {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
-        TextField idField = new TextField("ID");
-        TextField nombreField = new TextField("Nombre");
-        TextField descripcionField = new TextField("Descripción");
+        TextField tipoMovimientoIdField = new TextField("Tipo Movimiento ID");
+        TextField nombreTipoField = new TextField("Nombre Tipo");
+        TextField efectoMovimientoField = new TextField("Efecto Movimiento");
 
-        FormLayout form = new FormLayout(idField, nombreField, descripcionField);
+        FormLayout form = new FormLayout(
+                tipoMovimientoIdField,
+                nombreTipoField,
+                efectoMovimientoField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Tipo Movimiento - Crear: " + nombreTipoField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Entidad 1 - Consultar ID: " + idField.getValue()));
+                e -> Notification.show("Tipo Movimiento - Consultar ID: " + tipoMovimientoIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Entidad 1 - Actualizar ID: " + idField.getValue()));
+                e -> Notification.show("Tipo Movimiento - Actualizar ID: " + tipoMovimientoIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Entidad 1 - Eliminar ID: " + idField.getValue()));
+                e -> Notification.show("Tipo Movimiento - Eliminar ID: " + tipoMovimientoIdField.getValue()));
         btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
         Button btnLimpiar = new Button("Limpiar", e -> {
-            idField.clear();
-            nombreField.clear();
-            descripcionField.clear();
+            tipoMovimientoIdField.clear();
+            nombreTipoField.clear();
+            efectoMovimientoField.clear();
         });
 
         HorizontalLayout acciones = new HorizontalLayout(
@@ -318,9 +329,9 @@ public class MainView extends VerticalLayout {
         acciones.getStyle().set("flex-wrap", "wrap");
 
         Grid<String[]> grid = new Grid<>();
-        grid.addColumn(row -> row[0]).setHeader("ID").setAutoWidth(true);
-        grid.addColumn(row -> row[1]).setHeader("Nombre").setAutoWidth(true);
-        grid.addColumn(row -> row[2]).setHeader("Descripción").setAutoWidth(true);
+        grid.addColumn(row -> row[0]).setHeader("Tipo Movimiento ID").setAutoWidth(true);
+        grid.addColumn(row -> row[1]).setHeader("Nombre Tipo").setAutoWidth(true);
+        grid.addColumn(row -> row[2]).setHeader("Efecto Movimiento").setAutoWidth(true);
 
         layout.add(form, acciones, grid);
         return layout;
