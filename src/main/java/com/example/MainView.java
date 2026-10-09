@@ -16,6 +16,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.textfield.TextArea;
 
 @PageTitle("Gestión CRUD - 2 Entidades")
 @Route("")
@@ -407,29 +408,42 @@ public class MainView extends VerticalLayout {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
-        TextField idField = new TextField("Código / ID");
-        TextField tituloField = new TextField("Título");
-        TextField categoriaField = new TextField("Categoría");
+        NumberField tipoAlertaIdField = new NumberField("Tipo Alerta ID");
+        TextField nombreTipoField = new TextField("Nombre Tipo");
+        TextArea descripcionAlertaField = new TextArea("Descripcion Alerta");
+        TextField prioridadField = new TextField("Prioridad");
+        Select<Boolean> activoField = new Select<>();
+        activoField.setLabel("Estado activo");
+        activoField.setItems(true, false);
+        activoField.setItemLabelGenerator(activo -> activo ? "Sí" : "No");
 
-        FormLayout form = new FormLayout(idField, tituloField, categoriaField);
+        FormLayout form = new FormLayout(
+                tipoAlertaIdField,
+                nombreTipoField,
+                descripcionAlertaField,
+                prioridadField,
+                activoField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 2 - Crear: " + tituloField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Entidad 2 - Crear: " + nombreTipoField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Entidad 2 - Consultar Código: " + idField.getValue()));
+                e -> Notification.show("Entidad 2 - Consultar Código: " + tipoAlertaIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Entidad 2 - Actualizar Código: " + idField.getValue()));
+                e -> Notification.show("Entidad 2 - Actualizar Código: " + tipoAlertaIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Entidad 2 - Eliminar Código: " + idField.getValue()));
+                e -> Notification.show("Entidad 2 - Eliminar Código: " + tipoAlertaIdField.getValue()));
         btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
         Button btnLimpiar = new Button("Limpiar", e -> {
-            idField.clear();
-            tituloField.clear();
-            categoriaField.clear();
+            tipoAlertaIdField.clear();
+            nombreTipoField.clear();
+            descripcionAlertaField.clear();
+            prioridadField.clear();
+            activoField.clear();
         });
 
         HorizontalLayout acciones = new HorizontalLayout(
@@ -437,9 +451,11 @@ public class MainView extends VerticalLayout {
         acciones.getStyle().set("flex-wrap", "wrap");
 
         Grid<String[]> grid = new Grid<>();
-        grid.addColumn(row -> row[0]).setHeader("Código / ID").setAutoWidth(true);
-        grid.addColumn(row -> row[1]).setHeader("Título").setAutoWidth(true);
-        grid.addColumn(row -> row[2]).setHeader("Categoría").setAutoWidth(true);
+        grid.addColumn(row -> row[0]).setHeader("Tipo Alerta ID").setAutoWidth(true);
+        grid.addColumn(row -> row[1]).setHeader("Nombre Tipo").setAutoWidth(true);
+        grid.addColumn(row -> row[2]).setHeader("Descripcion Alerta").setAutoWidth(true);
+        grid.addColumn(row -> row[3]).setHeader("Prioridad").setAutoWidth(true);
+        grid.addColumn(row -> row[4]).setHeader("Estado activo").setAutoWidth(true);
 
         layout.add(form, acciones, grid);
         return layout;
