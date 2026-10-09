@@ -3,6 +3,7 @@ package com.example;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
@@ -10,9 +11,11 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.TabSheet;
+import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.select.Select;
 
 @PageTitle("Gestión CRUD - 2 Entidades")
 @Route("")
@@ -223,8 +226,8 @@ public class MainView extends VerticalLayout {
         TextField movimientoIdField = new TextField("ID Movimiento");
         TextField inventarioIdField = new TextField("ID Inventario");
         TextField tipoMovimientoIdField = new TextField("ID Tipo Movimiento");
-        TextField cantidadField = new TextField("Cantidad");
-        TextField fechaMovimientoFied = new TextField("Fecha Movimiento");
+        NumberField cantidadField = new NumberField("Cantidad");
+        DatePicker fechaMovimientoFied = new DatePicker("Fecha Movimiento");
         TextField usuarioIdField = new TextField("ID Usuario");
         TextField motivoField = new TextField("Motivo Movimiento");
         TextField ventaIdField = new TextField("ID Venta");
@@ -342,29 +345,45 @@ public class MainView extends VerticalLayout {
         VerticalLayout layout = new VerticalLayout();
         layout.setPadding(false);
 
-        TextField idField = new TextField("ID");
-        TextField nombreField = new TextField("Nombre");
-        TextField descripcionField = new TextField("Descripción");
+        TextField alertaIdField = new TextField("ID Alerta");
+        TextField inventarioIdField = new TextField("ID Inventario");
+        TextField tipoAlertaIdField = new TextField("Tipo Alerta");
+        DatePicker fechaGeneracionField = new DatePicker("Fecha Generacion");
+        DatePicker fechaResolucionField = new DatePicker("Fecha Resolucion");
+        Select<Boolean> activaField = new Select<>();
+        activaField.setLabel("Alerta Activa");
+        activaField.setItems(true, false);
+        activaField.setItemLabelGenerator(activo -> activo ? "Sí" : "No");
 
-        FormLayout form = new FormLayout(idField, nombreField, descripcionField);
+        FormLayout form = new FormLayout(
+                alertaIdField,
+                inventarioIdField,
+                tipoAlertaIdField,
+                fechaGeneracionField,
+                fechaResolucionField,
+                activaField);
 
-        Button btnCrear = new Button("Crear", e -> Notification.show("Entidad 1 - Crear: " + nombreField.getValue()));
+        Button btnCrear = new Button("Crear",
+                e -> Notification.show("Alerta Inventario - Crear: " + alertaIdField.getValue()));
         btnCrear.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         Button btnConsultar = new Button("Consultar",
-                e -> Notification.show("Entidad 1 - Consultar ID: " + idField.getValue()));
+                e -> Notification.show("Alerta Inventario - Consultar ID: " + alertaIdField.getValue()));
 
         Button btnActualizar = new Button("Actualizar",
-                e -> Notification.show("Entidad 1 - Actualizar ID: " + idField.getValue()));
+                e -> Notification.show("Alerta Inventario - Actualizar ID: " + alertaIdField.getValue()));
 
         Button btnEliminar = new Button("Eliminar",
-                e -> Notification.show("Entidad 1 - Eliminar ID: " + idField.getValue()));
+                e -> Notification.show("Alerta Inventario - Eliminar ID: " + alertaIdField.getValue()));
         btnEliminar.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
         Button btnLimpiar = new Button("Limpiar", e -> {
-            idField.clear();
-            nombreField.clear();
-            descripcionField.clear();
+            alertaIdField.clear();
+            inventarioIdField.clear();
+            tipoAlertaIdField.clear();
+            fechaGeneracionField.clear();
+            fechaResolucionField.clear();
+            activaField.clear();
         });
 
         HorizontalLayout acciones = new HorizontalLayout(
@@ -372,9 +391,12 @@ public class MainView extends VerticalLayout {
         acciones.getStyle().set("flex-wrap", "wrap");
 
         Grid<String[]> grid = new Grid<>();
-        grid.addColumn(row -> row[0]).setHeader("ID").setAutoWidth(true);
-        grid.addColumn(row -> row[1]).setHeader("Nombre").setAutoWidth(true);
-        grid.addColumn(row -> row[2]).setHeader("Descripción").setAutoWidth(true);
+        grid.addColumn(row -> row[0]).setHeader("ID Alerta").setAutoWidth(true);
+        grid.addColumn(row -> row[1]).setHeader("ID Inventario").setAutoWidth(true);
+        grid.addColumn(row -> row[2]).setHeader("Tipo Alerta").setAutoWidth(true);
+        grid.addColumn(row -> row[3]).setHeader("Fecha Generacion").setAutoWidth(true);
+        grid.addColumn(row -> row[4]).setHeader("Fecha Resolucion").setAutoWidth(true);
+        grid.addColumn(row -> row[5]).setHeader("Estado Activo").setAutoWidth(true);
 
         layout.add(form, acciones, grid);
         return layout;
